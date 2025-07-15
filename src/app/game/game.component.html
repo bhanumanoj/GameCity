@@ -1,0 +1,25 @@
+<h1>Welcome To GameCity: Experience the Online Gaming Experience</h1>
+<br><br>
+ 
+<form>
+ Name:
+<input type="text" [(ngModel)]='name' name='name' #nameRef='ngModel' required pattern="^[a-zA-Z]+$">
+<div *ngIf='nameRef.errors && (nameRef.dirty || nameRef.touched)'>
+<div [hidden]='!nameRef.errors.required' class="alert alert-danger">username is required field</div>
+<div [hidden]='!nameRef.errors.pattern' class="alert alert-danger">only characters are allowed</div>
+</div>
+<br><br>
+ Address:
+<input type="text" [(ngModel)]='address' name='address' #addressRef='ngModel' required >
+<div *ngIf='addressRef.errors && (addressRef.dirty || addressRef.touched)'>
+<div [hidden]='!amountRef.errors.required' class="alert alert-danger">address is required field</div>
+</div>
+<br><br>
+ Amount to Pay:
+<input type="number" [(ngModel)]='amount' name='amount' #amountRef='ngModel' required >
+<div *ngIf='amountRef.errors && (amountRef.dirty || amountRef.touched)'>
+<div [hidden]='!amountRef.errors.required' class="alert alert-danger">amount is required field</div>
+</div>
+</form>
+ 
+<button (click)='buyCard()'>Buy Card</button>
